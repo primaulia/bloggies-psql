@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    render html: "show all posts by #{current_user.id}"
+    @all_posts = current_user.posts
   end
 
   def show
@@ -21,8 +21,5 @@ class PostsController < ApplicationController
   end
 
   def update
-  end
-
-  def foo
   end
 end

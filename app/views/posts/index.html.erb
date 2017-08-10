@@ -1,2 +1,12 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>All posts by <%= current_user.name %></h1>
+
+<ul>
+  <% @all_posts.each do |post| %>
+  <li>
+    <h4><%= post.title %></h4>
+    <p>
+      <%= post.content %>
+    </p>
+  </li>
+  <% end  %>
+</ul>
