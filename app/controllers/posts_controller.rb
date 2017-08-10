@@ -28,7 +28,6 @@ class PostsController < ApplicationController
     # creating_post.title = params[:post][:title]
 
     Post.create(post_params)
-
     redirect_to posts_path
   end
 
