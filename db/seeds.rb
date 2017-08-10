@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-5.times do |i|
-  User.create(
-    name: "User#{i+1}",
-    email: "user#{i+1}@gmail.com",
-    password: "user123",
-    password_confirmation: "user123"
-  )
-end
+# 5.times do |i|
+#   User.create(
+#     name: "User#{i+1}",
+#     email: "user#{i+1}@gmail.com",
+#     password: "user123",
+#     password_confirmation: "user123"
+#   )
+# end
 
 # 5.times do |i|
 #   Post.create(
@@ -22,3 +22,17 @@ end
 #     user_id: 7
 #   )
 # end
+
+5.times do
+  Comment.create(
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    post_id: 14
+  )
+end
+
+5.times do
+  Comment.create(
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    post_id: 15
+  )
+end
