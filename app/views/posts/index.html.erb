@@ -10,3 +10,16 @@
   </li>
   <% end  %>
 </ul>
+
+<h2>Create new post</h2>
+<%= form_for @new_post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <br>
+
+  <%= f.submit %>
+<% end %>

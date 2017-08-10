@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @all_posts = current_user.posts
+    @new_post = Post.new
   end
 
   def show
@@ -18,6 +19,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    render json: params
   end
 
   def update
