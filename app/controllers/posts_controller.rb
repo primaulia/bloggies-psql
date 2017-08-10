@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    render html: 'show one post'
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -17,19 +17,35 @@ class PostsController < ApplicationController
   end
 
   def edit
-    render html: 'show form to edit existing post'
+    @current_post = Post.find(params[:id])
   end
 
   def create
     # allowing mass assignment
-    creating_post = params.require(:post).permit(:title, :content, :user_id)
+    # creating_post = post_params
 
     # creating_post = current_user.post.build
     # creating_post.title = params[:post][:title]
 
-    Post.create(creating_post)
+    Post.create(post_params)
 
     redirect_to posts_path
+  end
+
+  def update
+    # render json: post_update_params
+    updated_post = Post.find(params[:id])
+
+    # updated_post.title = params[:post][:title]
+    # updated_post.content = params[:post][:content]
+    # updated_post.user_id = params[:post][:user_id]
+    # updated_post.foo = params[:post][:foo]
+    # updated_post.past = params[:post][:past]
+
+    updated_post.update(post_update_params)
+
+    redirect_to posts_path
+    # render html: 'updated'
   end
 
   def destroy
@@ -39,5 +55,15 @@ class PostsController < ApplicationController
     deleted_post.destroy
 
     redirect_to posts_path
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title,:content, :user_id)
+  end
+
+  def post_update_params
+    params.require(:post).permit(:title,:content)
   end
 end
