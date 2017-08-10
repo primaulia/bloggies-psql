@@ -1,13 +1,20 @@
 <h1>My posts by <%= current_user.name %></h1>
 
+<%#= @all_posts.inspect %>
+
 <ul>
   <% @all_posts.each do |post| %>
-  <li>
-    <h4><%= post.title %></h4>
-    <p>
-      <%= post.content %>
-    </p>
-  </li>
+    <% if post.id #check if post has id => exist in db %>
+      <li>
+        <h4><%= post.title %></h4>
+        <p>
+          <%= post.content %>
+        </p>
+
+        <%= link_to "view", post_path(post) %>
+        <%= link_to "delete", post_path(post), method: :delete %>
+      </li>
+    <% end %>
   <% end  %>
 </ul>
 
@@ -21,5 +28,9 @@
   <%= f.text_field :content %>
   <br>
 
+  <%= f.hidden_field :user_id %>
+
   <%= f.submit %>
 <% end %>
+
+<%#= @new_post.inspect %>

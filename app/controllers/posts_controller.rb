@@ -3,7 +3,9 @@ class PostsController < ApplicationController
 
   def index
     @all_posts = current_user.posts
-    @new_post = Post.new
+    # @new_post = Post.new #post isnt tagged to any user
+
+    @new_post = current_user.posts.new
   end
 
   def show
@@ -19,9 +21,23 @@ class PostsController < ApplicationController
   end
 
   def create
-    render json: params
+    # allowing mass assignment
+    creating_post = params.require(:post).permit(:title, :content, :user_id)
+
+    # creating_post = current_user.post.build
+    # creating_post.title = params[:post][:title]
+
+    Post.create(creating_post)
+
+    redirect_to posts_path
   end
 
-  def update
+  def destroy
+    # Post.destroy(params[:id])
+
+    deleted_post = Post.find(params[:id])
+    deleted_post.destroy
+
+    redirect_to posts_path
   end
 end
