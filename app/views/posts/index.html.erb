@@ -1,4 +1,6 @@
-<h1>My posts by <%= current_user.name %></h1>
+<% provide(:title, "Bloggies || My posts by #{current_user.name}") %>
+
+
 <h3>Today's weather: <%= @weather_data['weather'][0]['main'] %></h3>
 
 <h2>News from API</h2>

@@ -1,4 +1,5 @@
-<h1><%= @post.title %></h1>
+<% provide(:title, "Bloggies || #{@post.title}") %>
+
 <small>
   Author: <%= @post.user.name %> (<%= @post.created_at %>)
 </small>
