@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root 'static#home'
-
   get '/about', to: 'static#about'
 
   devise_for :users,
@@ -12,6 +11,14 @@ Rails.application.routes.draw do
               }
 
   resources :posts
+  # get '/tags', to: 'tags#index'
+
+  # resources :posts do
+  #   resources :tags
+  # end
+
+  resources :tags, only: [:index]
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
