@@ -8,8 +8,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="<%= controller_name %> <%= action_name %>">
     <%= render "partials/nav" %>
+
     <div class="container">
       <section class="hero">
         <div class="hero-body">
@@ -28,6 +29,7 @@
         <%= yield %>
       </section>
     </div>
+
     <%#= render "partials/nav" %>
     <footer class="footer">
       <div class="container">
