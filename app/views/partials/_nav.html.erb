@@ -1,8 +1,12 @@
 <nav class="navbar ">
   <div class="navbar-brand">
-    <a class="navbar-item" href="http://bulma.io">
-      <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
-    </a>
+    <%= link_to root_path, class: "navbar-item" do %>
+      <%= image_tag 'http://bulma.io/images/bulma-logo.png',
+                    alt: 'Bloggies',
+                    width: 112,
+                    height: 28
+      %>
+    <% end %>
 
     <a class="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
       <span class="icon" style="color: #333;">
