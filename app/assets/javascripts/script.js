@@ -1,1 +1,4 @@
-alert('load script')
+
+$(function () {
+  alert('jquery loaded')
+})

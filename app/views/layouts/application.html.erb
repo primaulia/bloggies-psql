@@ -9,17 +9,30 @@
   </head>
 
   <body>
-    <h1><%= yield(:title) %></h1>
     <%= render "partials/nav" %>
+    <div class="container">
+      <section class="hero">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              <%= yield(:title) %>
+            </h1>
+          </div>
+        </div>
+      </section>
 
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-
-    <footer>
-      <%= render "partials/nav" %>
-      &copy; Bloggies 2017
+      <section>
+        <%= yield %>
+      </section>
+    </div>
+    <%#= render "partials/nav" %>
+    <footer class="footer">
+      <div class="container">
+        &copy; Bloggies 2017
+      </div>
     </footer>
   </body>
 </html>

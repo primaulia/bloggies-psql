@@ -1,25 +1,42 @@
-<nav>
-  <ul>
-    <li>
-      <%= link_to "Home", root_path%>
-    </li>
-    <li>
-      <%= link_to "About", about_path%>
-    </li>
-    <% if current_user %>
-      <li>
-        <%= link_to "My Posts", posts_path%>
-      </li>
-      <li>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-      </li>
+<nav class="navbar ">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="http://bulma.io">
+      <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+    </a>
+
+    <a class="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
+      <span class="icon" style="color: #333;">
+        <i class="fa fa-github"></i>
+      </span>
+    </a>
+
+    <a class="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+      <span class="icon" style="color: #55acee;">
+        <i class="fa fa-twitter"></i>
+      </span>
+    </a>
+
+    <div class="navbar-burger burger" data-target="navMenuExample">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div id="navMenuExample" class="navbar-menu">
+    <div class="navbar-start">
+      <%= link_to "Home", root_path, class: 'navbar-item'%>
+      <%= link_to "About", about_path, class: 'navbar-item'%>
+    </div>
+
+    <div class="navbar-end">
+      <% if current_user %>
+      <%= link_to "My Posts", posts_path, class: 'navbar-item '%>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-item' %>
     <% else %>
-      <li>
-        <%= link_to "Login", new_user_session_path %>
-      </li>
-      <li>
-        <%= link_to "Register", new_user_registration_path %>
-      </li>
-    <% end %>
-  </ul>
+      <%= link_to "Login", new_user_session_path, class: 'navbar-item' %>
+      <%= link_to "Register", new_user_registration_path, class: 'navbar-item' %>
+      <% end %>
+    </div>
+  </div>
 </nav>
