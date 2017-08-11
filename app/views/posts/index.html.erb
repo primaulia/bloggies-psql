@@ -1,6 +1,19 @@
 <h1>My posts by <%= current_user.name %></h1>
 
-<%#= @all_posts.inspect %>
+<h2>News from API</h2>
+<ul>
+  <% @news_data['articles'].each do |article| %>
+    <li>
+      <h3><%= article['title'] %></h3>
+      <p>
+        <%= article['description'] %>
+      </p>
+      <img src="<%= article['urlToImage'] %>" alt="<%= article['title'] %>">
+    </li>
+  <% end %>
+</ul>
+
+<%#= @news_data['articles'] %>
 
 <h2>Create new post</h2>
 <%= form_for @new_post do |f| %>

@@ -2,10 +2,18 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def index
-    @all_posts = current_user.posts
-    # @new_post = Post.new #post isnt tagged to any user
+    news_url = 'https://newsapi.org/v1/articles?source=buzzfeed&sortBy=latest&apiKey=6a1b87ded86d47cf8f7b18a230f094bf'
+    response = HTTParty.get(news_url)
 
+    @news_data = response
+    # render json: @news_data
+
+    @all_posts = current_user.posts
     @new_post = current_user.posts.new
+
+    # render json: @all_posts
+
+    # @new_post = Post.new #post isnt tagged to any user
   end
 
   def show
