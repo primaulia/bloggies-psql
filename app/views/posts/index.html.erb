@@ -1,4 +1,5 @@
 <h1>My posts by <%= current_user.name %></h1>
+<h3>Today's weather: <%= @weather_data['weather'][0]['main'] %></h3>
 
 <h2>News from API</h2>
 <ul>
@@ -8,7 +9,7 @@
       <p>
         <%= article['description'] %>
       </p>
-      <img src="<%= article['urlToImage'] %>" alt="<%= article['title'] %>">
+      <%= image_tag article['urlToImage'], width: 100, alt: article['title'] %>
     </li>
   <% end %>
 </ul>
