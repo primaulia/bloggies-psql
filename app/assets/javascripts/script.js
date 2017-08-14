@@ -7,12 +7,15 @@ $(document).on('turbolinks:load', function () {
   $('.home').ready(function () {
     // check if we're at static pages
     // load on static pages views
-    alert('run ajax for static views only')
+    // alert('run ajax for static views only')
   })
 
   $('.posts.show').ready(function () {
     // check if we're at posts pages
     // load on posts views
-    alert('run ajax for posts views only')
+    // alert('run ajax for posts views only')
+    $.get('/tags', function (data) {
+      console.log(data)
+    })
   })
 })
